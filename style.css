@@ -206,7 +206,7 @@ section {
 
 /* Place items alternately left and right */
 .timeline-item:nth-child(odd) {
-    left: 0;
+    left: -40px;
     text-align: right;
 }
 
@@ -221,7 +221,7 @@ section {
     position: absolute;
     width: 16px;
     height: 16px;
-    right: -8px;
+    right: -10px;
     background-color: white;
     border: 3px solid #1a4d80; 
     top: 15px;
@@ -231,7 +231,7 @@ section {
 
 /* Adjust the dot position for right-side items */
 .timeline-item:nth-child(even)::after {
-    left: -8px;
+    left: -10px;
 }
 
 /* Styling the Date and Content */
@@ -259,6 +259,34 @@ section {
     color: #333;
     font-weight: 600;
 }
+
+
+/* New rule to correctly position dates outside the content box */
+.timeline-date {
+    position: absolute;
+    top: 15px; /* Aligns with the circle */
+    width: 100px; /* Gives the date text space */
+    font-weight: 700;
+    color: #a0a0a0; 
+    
+    /* Hide the original date text that was inside the content box */
+    margin-bottom: 0; 
+}
+
+/* Position date text for left-side items */
+.timeline-item:nth-child(odd) .timeline-date {
+    right: calc(50% + 25px); /* Places text to the left of the circle */
+    text-align: right;
+}
+
+/* Position date text for right-side items */
+.timeline-item:nth-child(even) .timeline-date {
+    left: calc(50% + 25px); /* Places text to the right of the circle */
+    text-align: left;
+}
+
+
+
 
 /* 7. FOOTER/CONTACT */
 #contact-footer {
