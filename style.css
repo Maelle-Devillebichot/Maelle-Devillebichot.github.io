@@ -1,0 +1,245 @@
+/* 1. GLOBAL STYLES & FONT */
+body {
+    /* Uses the 'Inter' font linked in the HTML head */
+    font-family: 'Inter', Arial, sans-serif; 
+    margin: 0; 
+    padding-top: 60px; /* Space for the fixed navbar */
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #1a4d80; /* A dark blue for an academic feel */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* 2. STICKY NAVIGATION BAR */
+#navbar {
+    background-color: #f8f8f8;
+    position: fixed; /* Makes it stick to the screen */
+    top: 0; 
+    width: 100%;
+    z-index: 1000; /* Ensures it stays on top of all other content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#navbar ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+#navbar ul li a {
+    font-weight: 600; /* Semi-bold */
+    color: #1a4d80;
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+#navbar ul li a:hover {
+    color: #007bff;
+}
+
+/* 3. HERO SECTION STYLES (The Full-Screen Landing Page) */
+#hero {
+    /* Updated path to the background image in the Images/ folder */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('Images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Fills the entire screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white; 
+}
+
+#hero h1 {
+    font-size: 3.5em;
+    margin: 10px 0 20px 0;
+    color: white; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+}
+
+.profile-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover;
+    border: 6px solid rgba(255, 255, 255, 0.8); /* White border around the picture */
+    margin-bottom: 25px;
+}
+
+/* Social Logos: Default White, Yellow on Hover */
+.social-links img {
+    width: 35px; 
+    height: 35px;
+    margin: 0 12px;
+    transition: transform 0.2s, filter 0.3s ease-in-out; 
+    
+    /* Filter to make the images white (default state) */
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%); 
+}
+
+.social-links img:hover {
+    transform: scale(1.15); /* Slightly bigger on hover */
+    
+    /* Filter to make the images yellow on hover */
+    filter: invert(86%) sepia(85%) saturate(1478%) hue-rotate(359deg) brightness(102%) contrast(105%); 
+}
+
+/* 4. MAIN CONTENT SECTIONS (Alternating Colors) */
+section {
+    padding: 60px 10%; /* More vertical padding for clean look */
+    min-height: 40vh; 
+}
+
+.white-section {
+    background-color: white;
+}
+
+.grey-section {
+    background-color: #f0f0f0; /* Light grey */
+}
+
+/* 5. CV DOWNLOAD BUTTON STYLING */
+.cv-button {
+    /* Box appearance */
+    display: inline-block; 
+    padding: 8px 15px;
+    margin-left: 20px; 
+    border: 2px solid white; 
+    border-radius: 5px;
+    
+    /* Colors */
+    background-color: #007bff; /* Clear blue background */
+    color: white !important; 
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    
+    /* Smooth transition for hover effect */
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+.cv-button:hover {
+    background-color: #ffc107; /* Bright yellow on hover */
+    color: #1a4d80 !important; /* Dark blue text on yellow hover */
+    cursor: pointer;
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 6. ACADEMIC TIMELINE STYLING */
+
+.timeline-container {
+    position: relative;
+    max-width: 900px; 
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* The vertical line in the center */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #ccc; 
+    top: 0;
+    bottom: 0;
+    left: 50%; 
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* Place items alternately left and right */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+/* The round dots on the timeline */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: -8px;
+    background-color: white;
+    border: 3px solid #1a4d80; 
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Adjust the dot position for right-side items */
+.timeline-item:nth-child(even)::after {
+    left: -8px;
+}
+
+/* Styling the Date and Content */
+.timeline-date {
+    font-weight: bold;
+    color: #a0a0a0; 
+    margin-bottom: 5px;
+}
+
+.timeline-content {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #d84877; /* Pink/Magenta color for header */
+    font-size: 1.2em;
+}
+
+.timeline-content h4 {
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+}
+
+/* 7. FOOTER/CONTACT */
+#contact-footer {
+    background-color: #1a4d80; /* Match header blue */
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+#contact-footer a {
+    color: #ffc107; /* Yellow links in the footer */
+}
