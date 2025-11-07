@@ -176,7 +176,7 @@ section {
 
 
 
-/* 6. ACADEMIC TIMELINE STYLING */
+/* 6. ACADEMIC TIMELINE STYLING (Single-Sided Layout) */
 
 .timeline-container {
     position: relative;
@@ -185,7 +185,7 @@ section {
     padding: 20px 0;
 }
 
-/* The vertical line in the center */
+/* The vertical line moves to the left side */
 .timeline-container::after {
     content: '';
     position: absolute;
@@ -193,35 +193,37 @@ section {
     background-color: #ccc; 
     top: 0;
     bottom: 0;
-    left: 50%; 
+    left: 20%; /* Sets the line's position */
     margin-left: -1px;
 }
 
 .timeline-item {
-    padding: 10px 40px;
+    /* All items start from the left */
+    padding: 10px 0px; 
     position: relative;
     background-color: inherit;
-    width: 50%;
+    width: 100%; /* Allows full width for positioning */
+    text-align: left; /* All text aligns left */
 }
 
-/* Place items alternately left and right */
-.timeline-item:nth-child(odd) {
-    left: -40px;
-    text-align: right;
-}
-
+/* Remove alternating styles */
+.timeline-item:nth-child(odd),
 .timeline-item:nth-child(even) {
-    left: 50%;
-    text-align: left;
+    left: 0;
+    padding: 10px 0px;
 }
 
-/* The round dots on the timeline */
+/* The round dots */
 .timeline-item::after {
     content: '';
     position: absolute;
     width: 16px;
     height: 16px;
-    right: -10px;
+    
+    /* Position dot on the center line */
+    left: calc(20% - 8px); 
+    right: auto; /* Ensure no conflicting right property */
+    
     background-color: white;
     border: 3px solid #1a4d80; 
     top: 15px;
@@ -229,60 +231,40 @@ section {
     z-index: 1;
 }
 
-/* Adjust the dot position for right-side items */
+/* Remove the redundant ::after style for even items */
 .timeline-item:nth-child(even)::after {
-    left: -10px;
+    left: calc(20% - 8px); 
 }
 
-/* Styling the Date and Content */
+/* Date Positioning (Moves all dates to the left column) */
 .timeline-date {
-    font-weight: bold;
+    /* Use position absolute to place it freely in the left 20% space */
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 18%; /* Fits it into the left column space */
+    font-weight: 700;
     color: #a0a0a0; 
-    margin-bottom: 5px;
+    text-align: right; /* Aligns text to the right edge of its 18% space */
 }
 
+/* Content Block Positioning (Moves all content to the right column) */
 .timeline-content {
     background-color: white;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    
+    /* Pushes content right, away from the 20% left column */
+    margin-left: 25%; 
+    width: 75%; 
 }
 
+/* Adjust timeline content titles for better spacing */
 .timeline-content h3 {
     margin-top: 0;
-    color: #d84877; /* Pink/Magenta color for header */
+    color: #dc9f2d; 
     font-size: 1.2em;
-}
-
-.timeline-content h4 {
-    margin: 0;
-    color: #333;
-    font-weight: 600;
-}
-
-
-/* New rule to correctly position dates outside the content box */
-.timeline-date {
-    position: absolute;
-    top: 15px; /* Aligns with the circle */
-    width: 100px; /* Gives the date text space */
-    font-weight: 700;
-    color: #a0a0a0; 
-    
-    /* Hide the original date text that was inside the content box */
-    margin-bottom: 0; 
-}
-
-/* Position date text for left-side items */
-.timeline-item:nth-child(odd) .timeline-date {
-    right: calc(50% + 25px); /* Places text to the left of the circle */
-    text-align: right;
-}
-
-/* Position date text for right-side items */
-.timeline-item:nth-child(even) .timeline-date {
-    left: calc(50% + 25px); /* Places text to the right of the circle */
-    text-align: left;
 }
 
 
