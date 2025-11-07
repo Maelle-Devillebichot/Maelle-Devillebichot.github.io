@@ -63,7 +63,7 @@ a:hover {
 /* 3. HERO SECTION STYLES (The Full-Screen Landing Page) */
 #hero {
     /* Updated path to the background image in the Images/ folder */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('Images/background.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('Images/background.jpeg');
     background-size: cover;
     background-position: center;
     height: 100vh; /* Fills the entire screen height */
