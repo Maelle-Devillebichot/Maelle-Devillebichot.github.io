@@ -3,7 +3,7 @@ body {
     /* Uses the 'Inter' font linked in the HTML head */
     font-family: 'Inter', Arial, sans-serif; 
     margin: 0; 
-    padding-top: 60px; /* Space for the fixed navbar */
+    padding-top: 0; /* Adjusted for sticky navbar */
     color: #333;
     line-height: 1.6;
 }
@@ -24,13 +24,14 @@ a:hover {
 
 /* 2. STICKY NAVIGATION BAR */
 #navbar {
-    background-color: #f8f8f8;
+    background-color: #333;
     position: fixed; /* Makes it stick to the screen */
     top: 0; 
     width: 100%;
+    border-bottom: 1px solid white;
     z-index: 1000; /* Ensures it stays on top of all other content */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
 #navbar ul {
@@ -47,14 +48,17 @@ a:hover {
 
 #navbar ul li a {
     font-weight: 600; /* Semi-bold */
-    color: #1a4d80;
+    color: #ccc;
+    font-size: 1.1em;
     padding: 10px 15px;
     transition: color 0.3s;
 }
 
 #navbar ul li a:hover {
-    color: #007bff;
+    color: white;
 }
+
+
 
 /* 3. HERO SECTION STYLES (The Full-Screen Landing Page) */
 #hero {
@@ -79,31 +83,42 @@ a:hover {
 }
 
 .profile-pic {
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%; /* Makes the image round */
     object-fit: cover;
     border: 6px solid rgba(255, 255, 255, 0.8); /* White border around the picture */
     margin-bottom: 25px;
 }
 
+
 /* Social Logos: Default White, Yellow on Hover */
+.social-links {
+    /* (Ensure this is still here for alignment with the CV button!) */
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
 .social-links img {
     width: 35px; 
     height: 35px;
     margin: 0 12px;
     transition: transform 0.2s, filter 0.3s ease-in-out; 
     
-    /* Filter to make the images white (default state) */
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%); 
+    /* 1. If your original images are WHITE, this keeps them white. */
+    /* If your original images are BLACK, you'd use 'filter: invert(100%);' here. */
+    filter: brightness(100%); /* Ensures white icons stay visible and white */
 }
 
 .social-links img:hover {
     transform: scale(1.15); /* Slightly bigger on hover */
     
-    /* Filter to make the images yellow on hover */
-    filter: invert(86%) sepia(85%) saturate(1478%) hue-rotate(359deg) brightness(102%) contrast(105%); 
+    /* 2. This filter turns the icon a vivid YELLOW on hover, regardless of original color. */
+    filter: invert(70%) sepia(80%) saturate(2000%) hue-rotate(0deg); 
 }
+
+
 
 /* 4. MAIN CONTENT SECTIONS (Alternating Colors) */
 section {
@@ -119,33 +134,47 @@ section {
     background-color: #f0f0f0; /* Light grey */
 }
 
-/* 5. CV DOWNLOAD BUTTON STYLING */
+
+
+/* 5. CV DOWNLOAD BUTTON STYLING (Orange/Yellow Default) */
 .cv-button {
     /* Box appearance */
     display: inline-block; 
     padding: 8px 15px;
     margin-left: 20px; 
-    border: 2px solid white; 
+    border: 2px solid white; /* Default border color (white) */
     border-radius: 5px;
     
-    /* Colors */
-    background-color: #007bff; /* Clear blue background */
-    color: white !important; 
-    font-weight: bold;
+    /* Colors: Set default to ORANGE/YELLOW (ffc107) with Dark Blue Text (1a4d80) */
+    background-color: #ffc107; 
+    color: #1a4d80 !important; 
+    font-weight: bold; /* Make the default text bold */
     text-transform: uppercase;
     font-size: 0.9em;
     
     /* Smooth transition for hover effect */
-    transition: background-color 0.3s ease-in-out, transform 0.2s;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .cv-button:hover {
-    background-color: #ffc107; /* Bright yellow on hover */
-    color: #1a4d80 !important; /* Dark blue text on yellow hover */
+    /* Hover: Border lightens, text turns white and is bold */
+    
+    /* Change border color to a lighter, more obvious white/silver */
+    border-color: #eee; 
+    
+    /* Text color changes to white and remains bold */
+    color: white !important; 
+    font-weight: bold; 
+    
+    /* Optional: Keep the background color the same, or slightly darker if you prefer a subtle lift */
+    background-color: #ffc107; 
+    
     cursor: pointer;
-    transform: translateY(-2px); 
+    transform: translateY(-1px); /* Subtle lift effect */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+
+
 
 /* 6. ACADEMIC TIMELINE STYLING */
 
