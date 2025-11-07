@@ -9,18 +9,27 @@ body {
 }
 
 h1, h2, h3 {
-    color: #1a4d80; /* A dark blue for an academic feel */
+    color: #d55211; /* A dark blue for an academic feel */
 }
 
 a {
-    color: #007bff;
+    color: #d37648;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #0056b3;
+    color: #dc7a48;
 }
+
+/* Center and increase the size of the main section headings (h2) */
+section h2 {
+    text-align: center; /* Centers the text horizontally */
+    font-size: 2.2em; /* Makes the heading significantly larger */
+    margin-bottom: 40px; /* Adds more space below the heading before the content starts */
+    text-transform: uppercase; /* Optional: Gives it a professional, bold look */
+}
+
 
 /* 2. STICKY NAVIGATION BAR */
 #navbar {
@@ -263,7 +272,7 @@ section {
 /* Adjust timeline content titles for better spacing */
 .timeline-content h3 {
     margin-top: 0;
-    color: #dc9f2d; 
+    color: #da9b27; 
     font-size: 1.2em;
 }
 
